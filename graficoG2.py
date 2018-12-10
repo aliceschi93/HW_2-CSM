@@ -1,0 +1,31 @@
+# libraries
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import ast
+
+
+g2 = []
+with open('sizeeffects\\valoriG2.txt', 'U') as f: #apre file
+	data=f.read() #copia in una stringa tutto il documento
+	#data=data.split('\n') #divide per riga in una lista di stringhe
+	#for numero in data[:-1]:
+		#print numero
+		#energie.append(float(numero))
+	g2=ast.literal_eval(data)
+EPS = 0.05
+
+ascissa = [0]*len(g2)
+for indice in range(len(ascissa)):
+	ascissa[indice] = EPS * indice
+
+# Create a dataset:
+#df=pd.DataFrame({'k': range(1,101), 'sigma': np.random.randn(100)*15+range(1,101) })
+df=pd.DataFrame({'elementi': np.array(ascissa), 'pair': np.array(g2)})
+#df=pd.DataFrame({'iterazioni': range(0,51), 'energie': np.array([2.4604849225723853, 2.4604849225723853, 2.4604849225723853, 2.4604849225723853, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 1.99689902871547, 2.3246469160613943, 2.3246469160613943, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985, 2.0579511555986985])})
+
+# plot
+plt.plot('elementi', 'pair', data=df, linestyle='-', linewidth=0.4, marker='', color ='black')
+plt.xlabel('R')
+plt.ylabel('g2(R)')
+plt.show()

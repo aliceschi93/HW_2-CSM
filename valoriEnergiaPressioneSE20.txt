@@ -1,0 +1,4 @@
+Energia media (SizeEffect) + tail energia
+-0.0371142602355	-0.103323491718
+Pressione media (SizeEffect) + tail pressione
+1.06704112714	-0.0324444444444
